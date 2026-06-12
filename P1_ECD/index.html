@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <!-- CAMBIAR: Descripción y palabras clave según el negocio -->
+    <meta name="description"
+        content="Exclusivas Monse - Ropa deportiva, uniformes escolares y servicios de impresión y bordado. Calidad y confiabilidad para tu equipo o institución.">
+    <title>Exclusivas Monse | Ropa Deportiva y Uniformes Escolares</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#inicio">
+                    <span class="logo-accent">Exclusivas</span>
+                    <span>Monse</span>
+                </a>
+                <p class="logo-tagline">Calidad que identifica</p>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#deportivo" class="nav-link">Deportivo</a></li>
+                    <li><a href="#escolar" class="nav-link">Escolar</a></li>
+                    <li><a href="#complementos" class="nav-link">Complementos</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== NUEVA SECCIÓN HERO (IMAGEN DE FONDO + TEXTO CORT0) ==================== -->
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>Viste tu <span class="gold-text">mejor versión</span></h1>
+                <p>Uniformes que inspiran, calidad que perdura</p>
+                <a href="#deportivo" class="btn-primary">Descubre nuestras colecciones <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN INICIO (MISIÓN, VISIÓN, PROPÓSITO) ==================== -->
+        <section id="inicio" class="mission-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Nuestra esencia</span>
+                    <h2>Misión · Visión · Propósito</h2>
+                    <p>Lo que nos impulsa a vestir tu pasión</p>
+                </div>
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Misión</h3>
+                        <p>Proveer prendas deportivas y uniformes escolares de alta calidad, combinando durabilidad,
+                            comodidad y diseño, para satisfacer las necesidades de nuestros clientes con un servicio
+                            cercano y confiable.</p>
+                    </div>
+                    <div class="mission-card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Visión</h3>
+                        <p>Ser el proveedor líder en la región, reconocido por nuestra excelencia en productos
+                            personalizados, innovación en textiles y compromiso con cada equipo e institución educativa.
+                        </p>
+                    </div>
+                    <div class="mission-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Propósito</h3>
+                        <p>Fortalecer la identidad de grupos deportivos y escolares a través de uniformes que inspiren
+                            orgullo, pertenencia y rendimiento, apoyando siempre su pasión por el deporte y el estudio.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN INTERMEDIA (IMÁGENES + DESCRIPCIÓN GENERAL) ==================== -->
+        <section class="quality-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Confianza garantizada</span>
+                    <h2>Calidad y confiabilidad en cada prenda</h2>
+                    <p>Materiales seleccionados, acabados impecables y atención personalizada</p>
+                </div>
+                <div class="quality-grid">
+                    <div class="quality-item">
+                        <img src="./img/img-F2.jpg" alt="Prendas deportivas de alta calidad" loading="lazy">
+                        <h3>Durabilidad y confort</h3>
+                        <p>Tejidos resistentes que mantienen su forma y color, ideales para entrenamiento y competición.
+                        </p>
+                    </div>
+                    <div class="quality-item">
+                        <img src="./img/img-PC.png" alt="Uniformes escolares bien terminados" loading="lazy">
+                        <h3>Acabados profesionales</h3>
+                        <p>Costuras reforzadas, bordados de alta definición y talles inclusivos para todas las edades.
+                        </p>
+                    </div>
+                    <div class="quality-item">
+                        <img src="./img/IMG-F3.jpg" alt="Asesoría personalizada" loading="lazy">
+                        <h3>Atención personalizada</h3>
+                        <p>Te asesoramos en la elección de telas, colores y personalización para que tu equipo luzca
+                            único.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN DEPORTIVO ==================== -->
+        <section id="deportivo" class="sport-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Rendimiento y estilo</span>
+                    <h2>Uniformes deportivos</h2>
+                    <p>Diseñados para que des lo mejor en la cancha</p>
+                </div>
+                <div class="sport-grid">
+                    <div class="sport-card">
+                        <img src="./img/img-barca.jpg" alt="uniformes de fútbol" loading="lazy">
+                        <h3>uniformes de fútbol</h3>
+                        <p>camisetas y shorts con tecnología transpirable, ideales para partidos y entrenamientos.
+                            disponibles en una amplia gama de colores y talles.</p>
+                    </div>
+                    <div class="sport-card">
+                        <img src="./img/img-basq.jpg" alt="uniformes de básquetbol" loading="lazy">
+                        <h3>uniformes de básquetbol</h3>
+                        <p>jerseys y shorts ligeros con corte holgado que permite máxima movilidad. personalización con
+                            nombres y números incluida.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN ESCOLAR  ==================== -->
+        <section id="escolar" class="school-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Elegancia y formalidad</span>
+                    <h2>Uniformes escolares</h2>
+                    <p>Prendas que inspiran disciplina y pertenencia</p>
+                </div>
+                <div class="school-grid">
+                    <div class="school-card">
+                    
+                        <img src="./img/img-Escolar.jpg"
+                            alt="Uniforme escolar formal" loading="lazy">
+                        <h3>Uniforme del diario </h3>
+                        <p>Camisas, pantalones, faldas y suéteres con tejidos resistentes a arrugas y fácil
+                            mantenimiento.</p>
+                    </div>
+                    <div class="school-card">
+                        
+                        <img src="./img/img-Melchor.jpg"
+                            alt="Uniforme deportivo escolar" loading="lazy">
+                        <h3>Uniforme de educación física</h3>
+                        <p>Conjuntos cómodos y frescos para actividades deportivas dentro de la escuela, con bordados
+                            institucionales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN COMPLEMENTOS ==================== -->
+        <section id="complementos" class="accessories-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Detalles que marcan la diferencia</span>
+                    <h2>Complementos escolares y deportivos</h2>
+                    <p>Todo lo que necesitas para completar tu equipo</p>
+                </div>
+                <div class="accessories-grid">
+                    <div class="accessory-card">
+                        
+                        <img src="./img/img-ABG.png"
+                            alt="Accesorios de banda de guerra" loading="lazy">
+                        <h3>Accesorios para banda de guerra</h3>
+                        <p>Charreteras, cordones, botones y distintivos para uniformes de escoltas y bandas de guerra.
+                            Fabricados con materiales de alta resistencia.</p>
+                    </div>
+                    <div class="accessory-card">
+                        
+                        <img src="./img/img-ADep.jpg"
+                            alt="Accesorios deportivos" loading="lazy">
+                        <h3>Accesorios deportivos</h3>
+                        <p>Gorras, mochilas, espinilleras, balones y más. Personalización con logos y nombres
+                            disponibles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN SERVICIOS  ==================== -->
+        <section id="servicios" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Personalización profesional</span>
+                    <h2>Servicios de impresión y bordado</h2>
+                    <p>Haz que tus prendas sean únicas</p>
+                </div>
+                <div class="services-main">
+                    <div class="services-image">
+                        <img src="./img/img-Impr.png"
+                            alt="Máquina de bordado textil" loading="lazy">
+                    </div>
+                    <div class="services-box">
+                        <h3><i class="fas fa-print"></i> Impresión textil</h3>
+                        <p>Ofrecemos serigrafía, sublimación y transfer de alta calidad para estampar logos, nombres o
+                            diseños completos en playeras, sudaderas y más. Ideal para equipos, escuelas o eventos.</p>
+                        <div class="sub-service">
+                            <i class="fas fa-tshirt"></i>
+                            <div>
+                                <h4>Bordado profesional</h4>
+                                <p>Máquinaria profesional para bordar emblemas, escudos y texto en uniformes,
+                                    gorras y chalecos. Acabados nítidos y duraderos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECCIÓN CONTACTO ==================== -->
+        <section id="contacto" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Comunícate con nosotros</span>
+                    <h2>¿Tienes alguna pregunta?</h2>
+                    <p>Estamos listos para asesorarte</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="info-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Dirección</h3>
+                            
+                            <p>Av. De los Deportes #123, Colonia Centro, Ciudad de México, CP 71510</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-clock"></i>
+                            <h3>Horario de atención</h3>
+                            
+                            <p>Lunes a Viernes: 10:00 am - 7:00 pm<br>Sábados: 10:00 am - 2:00 pm</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-phone-alt"></i>
+                            <h3>Contactanos</h3>
+                            
+                            <p><i class="fab fa-whatsapp"></i> Gerente: (+52) 221 206 0169</p>
+                            <p><i class="fab fa-whatsapp"></i> Asesor de Ventas: (+52) 222 154 2067</p>
+                            <p><i class="fas fa-envelope"></i> exclusivas.monse@hotmail.com</p>
+                        </div>
+                        
+                        <div class="social-icons contact-social">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                        <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                        <textarea id="mensaje" name="mensaje" rows="4"
+                            placeholder="Cuéntanos lo que necesitas..."></textarea>
+                        <button type="submit" class="btn-primary">Enviar mensaje <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+                <!-- Mapa integrado (CAMBIAR: URL del mapa con la ubicación real) -->
+                <div class="map-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.196068672847!2d-99.133651!3d19.432608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f92b4d8b3b3b%3A0x8b5e9c5b3f3e9b3b!2sZ%C3%B3calo%2C%20Centro%2C%20Ciudad%20de%20M%C3%A9xico!5e0!3m2!1ses!2smx!4v1698765432100!5m2!1ses!2smx"
+                        width="100%" height="300" style="border:0; border-radius: 24px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><span class="logo-accent">Exclusivas</span> Monse</h3>
+                    <p>Calidad que identifica</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#deportivo">Deportivo</a></li>
+                        <li><a href="#escolar">Escolar</a></li>
+                        <li><a href="#complementos">Complementos</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Exclusivas Monse. Todos los derechos reservados.</p>
+                <p>Diseño y desarrollo con calidad y dedicación.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
