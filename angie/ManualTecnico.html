@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A N G I E: Agenda Inteligente - Manual Técnico</title>
+    <!-- Estilos CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* ===== VARIABLES GLOBALES ===== */
+        :root {
+            --verde-oscuro: #2E7D32;
+            --verde-claro: #A5D6A7;
+            --verde-dominante: #7DD9B1;
+            --texto-principal: #2D2D2D;
+            --texto-secundario: #555555;
+            --fondo-claro: #F8F9FA;
+            --blanco: #FFFFFF;
+            --gris-borde: #E9ECEF;
+            --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --sombra-media: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--texto-principal);
+            background-color: var(--fondo-claro);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== TIPOGRAFÍA ===== */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--texto-principal);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid var(--verde-dominante);
+            padding-left: 1rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.8rem 0 1rem 0;
+            color: var(--verde-oscuro);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.2rem 0 0.5rem 0;
+            color: var(--verde-oscuro);
+        }
+
+        .section-subtitle {
+            display: inline-block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--verde-oscuro);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== HEADER Y NAVEGACIÓN ===== */
+        .site-header {
+            background: var(--blanco);
+            box-shadow: var(--sombra-media);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .main-header {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--gris-borde);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .logo-highlight {
+            color: var(--verde-dominante);
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            color: var(--texto-secundario);
+            letter-spacing: 1px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--texto-principal);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--verde-dominante);
+        }
+
+        /* ===== SECCIONES ===== */
+        .section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gris-borde);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .bg-white {
+            background-color: var(--blanco);
+        }
+
+        /* ===== TARJETAS Y CONTENEDORES ===== */
+        .card {
+            background: var(--blanco);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid var(--gris-borde);
+        }
+
+        /* ===== TABLAS ===== */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--fondo-claro);
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+
+        .tech-table th,
+        .tech-table td {
+            border: 1px solid var(--gris-borde);
+            padding: 12px 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .tech-table th {
+            background-color: var(--verde-dominante);
+            color: white;
+            font-weight: 600;
+        }
+
+        .tech-table tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        /* ===== NOTAS Y CITAS ===== */
+        .note {
+            background: #E8F5E9;
+            border-left: 4px solid var(--verde-dominante);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            font-size: 0.95rem;
+            color: var(--texto-secundario);
+        }
+
+        .note i {
+            color: var(--verde-oscuro);
+            margin-right: 8px;
+        }
+
+        /* ===== BOTÓN DE DESCARGA ===== */
+        .download-section {
+            background: linear-gradient(135deg, var(--verde-dominante) 0%, var(--verde-claro) 100%);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--verde-oscuro);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, background-color 0.2s;
+            box-shadow: var(--sombra-media);
+        }
+
+        .download-btn:hover {
+            background-color: #1b5e20;
+            transform: translateY(-3px);
+        }
+
+        .download-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background-color: var(--texto-principal);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* ===== LISTAS ===== */
+        ul, ol {
+            margin-left: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.3rem;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .badge-tech {
+            background: var(--verde-claro);
+            color: var(--verde-oscuro);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .main-nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .tech-table {
+                font-size: 0.8rem;
+            }
+            .tech-table th,
+            .tech-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="main-header">
+                <div class="header-content">
+                    <div class="logo">
+                        <h1><span class="logo-highlight">A N G I E</span><br><span style="font-size:1rem;">Agenda Inteligente</span></h1>
+                        <p>Manual Técnico</p>
+                    </div>
+                    <nav class="main-nav">
+                        <ul>
+                            <li><a href="#intro">Introducción</a></li>
+                            <li><a href="#arquitectura">Arquitectura</a></li>
+                            <li><a href="#tecnologias">Tecnologías</a></li>
+                            <li><a href="#bd">Base de Datos</a></li>
+                            <li><a href="#notificaciones">Notificaciones</a></li>
+                            <li><a href="Angie.html"><strong>Manual de Usuario</strong></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- SECCIÓN DE DESCARGA DE PDF -->
+        <section class="section bg-white">
+            <div class="container">
+                <div class="download-section" data-aos="fade-up">
+                    <i class="fas fa-file-pdf" style="font-size: 2.5rem; color: var(--verde-oscuro); margin-bottom: 1rem; display: block;"></i>
+                    <h3 style="margin-top: 0; color: var(--verde-oscuro);">Descargar Manual Técnico</h3>
+                    <p style="margin-bottom: 1.5rem;">Obtén el documento completo en formato PDF para consulta offline o impresión.</p>
+                    <a href="#" class="download-btn" id="downloadTechBtn">
+                        <i class="fas fa-download"></i> Descargar PDF (Manual Técnico)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCCIÓN -->
+        <section id="intro" class="section bg-white">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <span class="section-subtitle">Documentación Técnica</span>
+                    <h1>Manual Técnico<br>ANGIE: Agenda Inteligente</h1>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3>1.1 Propósito del Documento</h3>
+                    <p>Este manual técnico describe la arquitectura, componentes, tecnologías utilizadas y la lógica interna de la aplicación “ANGIE: AGENDA INTELIGENTE”. Está dirigido a desarrolladores, mantenedores y personal técnico que requiera comprender, modificar o extender la funcionalidad del sistema.</p>
+
+                    <h3>1.2 Alcance del sistema</h3>
+                    <p>ANGIE es una aplicación móvil desarrollada para Android que permite la gestión inteligente de actividades personales y académicas. Sus principales capacidades incluyen:</p>
+                    <ul>
+                        <li>Autenticación de usuarios con validaciones robustas.</li>
+                        <li>Gestión completa (CRUD) de eventos.</li>
+                        <li>Sistema de notificaciones escalonadas y automatizadas.</li>
+                        <li>Persistencia local mediante SQLite.</li>
+                        <li>Interfaz moderna basada en Jetpack Compose.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARQUITECTURA GENERAL -->
+        <section id="arquitectura" class="section">
+            <div class="container">
+                <h2 data-aos="fade-right">2. ARQUITECTURA GENERAL</h2>
+                <div class="card" data-aos="fade-up">
+                    <h3>2.1 Patrón de diseño</h3>
+                    <p>La aplicación sigue el patrón <strong>MVVM (Model-View-ViewModel)</strong>, lo que permite:</p>
+                    <ul>
+                        <li>Separación clara de responsabilidades.</li>
+                        <li>Mayor capacidad de prueba (testabilidad).</li>
+                        <li>Ciclo de vida consciente de componentes Android.</li>
+                    </ul>
+                    <table class="tech-table">
+                        <thead>
+                            <tr><th>Capa</th><th>Componentes</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Model</strong></td><td>Entidades (Usuario, Evento), DAOs, Base de datos SQLite, Repositorios</td></tr>
+                            <tr><td><strong>ViewModel</strong></td><td>Clases que exponen datos mediante StateFlow/LiveData y manejan la lógica de negocio</td></tr>
+                            <tr><td><strong>View</strong></td><td>Pantallas implementadas con Jetpack Compose</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECNOLOGÍAS Y LIBRERÍAS -->
+        <section id="tecnologias" class="section bg-white">
+            <div class="container">
+                <h2 data-aos="fade-right">3. TECNOLOGÍAS Y LIBRERÍAS UTILIZADAS</h2>
+                <div class="card" data-aos="fade-up">
+                    <table class="tech-table">
+                        <thead><tr><th>Componente</th><th>Tecnología / Librería</th><th>Propósito</th></tr></thead>
+                        <tbody>
+                            <tr><td>Interfaz de usuario</td><td>Jetpack Compose</td><td>UI declarativa y moderna</td></tr>
+                            <tr><td>Persistencia</td><td>SQLite (Android nativo)</td><td>Almacenamiento local de usuarios y eventos</td></tr>
+                            <tr><td>Manejo de fechas/horas</td><td>ThreeTenBP (backport de java.time)</td><td>Uso de LocalDate, LocalTime, LocalDateTime</td></tr>
+                            <tr><td>Notificaciones</td><td>AlarmManager + BroadcastReceiver</td><td>Recordatorios automáticos en segundo plano</td></tr>
+                            <tr><td>Preferencias</td><td>SharedPreferences</td><td>Almacenamiento de estado de notificaciones enviadas</td></tr>
+                            <tr><td>Navegación</td><td>Compose Navigation</td><td>Transiciones entre pantallas</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTRUCTURA DE BASE DE DATOS -->
+        <section id="bd" class="section">
+            <div class="container">
+                <h2 data-aos="fade-right">4. Estructura de la base de datos</h2>
+                
+                <div class="card" data-aos="fade-up">
+                    <h3>4.1 Tabla: usuarios</h3>
+                    <table class="tech-table">
+                        <thead><tr><th>Campo</th><th>Tipo</th><th>Restricciones</th><th>Descripción</th></tr></thead>
+                        <tbody>
+                            <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY AUTOINCREMENT</td><td>Identificador único</td></tr>
+                            <tr><td>username</td><td>TEXT</td><td>UNIQUE, NOT NULL</td><td>Nombre de usuario (mínimo 4 caracteres)</td></tr>
+                            <tr><td>nombre</td><td>TEXT</td><td>NOT NULL</td><td>Nombre(s)</td></tr>
+                            <tr><td>apellido_paterno</td><td>TEXT</td><td>NOT NULL</td><td>Apellido paterno</td></tr>
+                            <tr><td>apellido_materno</td><td>TEXT</td><td>NOT NULL</td><td>Apellido materno</td></tr>
+                            <tr><td>email</td><td>TEXT</td><td>UNIQUE, NOT NULL</td><td>Correo electrónico con validación de formato</td></tr>
+                            <tr><td>password</td><td>TEXT</td><td>NOT NULL</td><td>Contraseña con requisitos de seguridad</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>4.2 Tabla: eventos</h3>
+                    <table class="tech-table">
+                        <thead><tr><th>Campo</th><th>Tipo</th><th>Restricciones</th><th>Descripción</th></tr></thead>
+                        <tbody>
+                            <tr><td>id</td><td>INTEGER</td><td>PRIMARY KEY AUTOINCREMENT</td><td>Identificador único</td></tr>
+                            <tr><td>nombre_evento</td><td>TEXT</td><td>NOT NULL, único por usuario</td><td>Nombre del evento (mínimo 3 caracteres)</td></tr>
+                            <tr><td>descripcion</td><td>TEXT</td><td>-</td><td>Opcional, con límite de caracteres</td></tr>
+                            <tr><td>fecha</td><td>TEXT</td><td>NOT NULL</td><td>Formato ISO (yyyy-MM-dd)</td></tr>
+                            <tr><td>hora</td><td>TEXT</td><td>NOT NULL</td><td>Formato HH:mm</td></tr>
+                            <tr><td>tipo_actividad</td><td>TEXT</td><td>NOT NULL</td><td>"Académica" o "Personal"</td></tr>
+                            <tr><td>usuario_id</td><td>INTEGER</td><td>FOREIGN KEY → usuarios(id)</td><td>Relación con el propietario</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="note"><i class="fas fa-ban"></i> Restricción adicional: No se permiten eventos con fechas pasadas ni horarios ya transcurridos en el día actual.</div>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3>5. MÓDULO DE AUTENTICACIÓN</h3>
+                    <h4>5.1 Validaciones implementadas</h4>
+                    <table class="tech-table">
+                        <thead><tr><th>Campo</th><th>Validación técnica</th></tr></thead>
+                        <tbody>
+                            <tr><td>Usuario</td><td>Longitud ≥ 4, sin duplicados en BD</td></tr>
+                            <tr><td>Contraseña</td><td>Longitud ≥ 8, al menos 1 mayúscula, 1 minúscula, 1 número</td></tr>
+                            <tr><td>Correo</td><td>Expresión regular para formato estándar</td></tr>
+                            <tr><td>Campos generales</td><td>Verificación de no vacíos</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>5.2 Recuperación de contraseña</h4>
+                    <p>El flujo técnico consiste en:</p>
+                    <ol>
+                        <li>Verificar que el usuario y correo correspondan al mismo registro en la tabla usuarios.</li>
+                        <li>Generar un código de verificación temporal (simulado o enviado).</li>
+                        <li>Validar el código ingresado por el usuario.</li>
+                        <li>Actualizar el campo password en la base de datos con la nueva contraseña (se recomienda hashing en futuras versiones).</li>
+                    </ol>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3>6. MÓDULO DE GESTIÓN DE EVENTOS</h3>
+                    <h4>6.1 Operaciones CRUD</h4>
+                    <table class="tech-table">
+                        <thead><tr><th>Operación</th><th>Método en repositorio</th><th>Descripción</th></tr></thead>
+                        <tbody>
+                            <tr><td>Crear</td><td>insertarEvento(evento)</td><td>Inserta un nuevo evento tras validar nombre único y fecha/hora vigente</td></tr>
+                            <tr><td>Consultar</td><td>obtenerEventosPorUsuario(usuarioId)</td><td>Retorna lista de eventos asociados al usuario (ordenados por fecha)</td></tr>
+                            <tr><td>Modificar</td><td>actualizarEvento(evento)</td><td>Permite editar nombre, descripción, tipo y hora (fecha no modificable en versión actual)</td></tr>
+                            <tr><td>Eliminar</td><td>eliminarEvento(eventoId)</td><td>Elimina un evento específico</td></tr>
+                            <tr><td>Limpieza automática</td><td>eliminarEventosPasados()</td><td>Se ejecuta periódicamente para borrar eventos con fecha anterior al día actual</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>6.2 Validaciones específicas para eventos</h4>
+                    <table class="tech-table">
+                        <thead><tr><th>Regla</th><th>Implementación</th></tr></thead>
+                        <tbody>
+                            <tr><td>Nombre evento mínimo</td><td>Longitud ≥ 3 caracteres</td></tr>
+                            <tr><td>Nombre único por usuario</td><td>Consulta a BD antes de insertar</td></tr>
+                            <tr><td>Fecha válida</td><td>fecha >= LocalDate.now() usando ThreeTenBP</td></tr>
+                            <tr><td>Hora válida (mismo día)</td><td>Si fecha == hoy, entonces hora > LocalTime.now()</td></tr>
+                            <tr><td>Descripción opcional</td><td>Límite de caracteres configurable</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="notificaciones" class="card" data-aos="fade-up">
+                    <h3>7. SISTEMA DE NOTIFICACIONES INTELIGENTES</h3>
+                    <h4>7.1 Algoritmo de recordatorios escalonados</h4>
+                    <p>ANGIE envía notificaciones en tres momentos clave antes de cada evento:</p>
+                    <table class="tech-table">
+                        <thead><tr><th>Momento</th><th>Tiempo antes del evento</th></tr></thead>
+                        <tbody>
+                            <tr><td>Primer recordatorio</td><td>1 hora antes</td></tr>
+                            <tr><td>Segundo recordatorio</td><td>15 minutos antes</td></tr>
+                            <tr><td>Tercer recordatorio</td><td>5 minutos antes</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>7.2 Implementación técnica</h4>
+                    <p>Componentes involucrados:</p>
+                    <ul>
+                        <li><strong>AlarmManager</strong>: Programa las alarmas exactas usando <code>setExact()</code>.</li>
+                        <li><strong>BroadcastReceiver</strong>: Recibe los intents de las alarmas.</li>
+                        <li><strong>NotificationManager</strong>: Construye y muestra la notificación.</li>
+                        <li><strong>SharedPreferences</strong>: Guarda un flag <code>notificacion_enviada_{eventoId}_{momento}</code> para evitar duplicados.</li>
+                    </ul>
+                    <p><strong>Flujo de programación:</strong></p>
+                    <ol>
+                        <li>Al crear o modificar un evento, se calculan los tres tiempos de notificación.</li>
+                        <li>Para cada tiempo, se crea un PendingIntent único.</li>
+                        <li>Se registra en SharedPreferences que la notificación está pendiente.</li>
+                        <li>Al recibir la alarma, el BroadcastReceiver verifica que el evento siga vigente (fecha no pasada y no eliminado). Si corresponde, muestra la notificación y marca el flag correspondiente como true.</li>
+                    </ol>
+                    <h4>7.3 Persistencia tras reinicio del dispositivo</h4>
+                    <p>Se implementa un BroadcastReceiver que escucha el evento <code>android.intent.action.BOOT_COMPLETED</code>. Al reiniciar, consulta todos los eventos futuros del usuario, reprograma las alarmas necesarias (solo para eventos no pasados) y verifica los flags de SharedPreferences para reanudar correctamente el estado.</p>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3>8. MANEJO DE FECHAS Y HORAS</h3>
+                    <h4>8.1 Librería ThreeTenBP</h4>
+                    <p>Dado que las versiones antiguas de Android no soportan <code>java.time</code>, se utiliza el backport <code>org.threeten.bp.*</code>.</p>
+                    <p><strong>Clases principales:</strong> LocalDate, LocalTime, LocalDateTime.</p>
+                    <h4>8.2 Formatos soportados</h4>
+                    <ul>
+                        <li><strong>Entrada del usuario:</strong> dd/MM/yyyy (convertido internamente a yyyy-MM-dd).</li>
+                        <li><strong>Almacenamiento en BD:</strong> yyyy-MM-dd (formato ISO).</li>
+                        <li><strong>Visualización:</strong> Se adapta según configuración regional.</li>
+                    </ul>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3>9. INTERFAZ DE USUARIO (JETPACK COMPOSE)</h3>
+                    <h4>9.1 Componentes principales utilizados</h4>
+                    <table class="tech-table">
+                        <thead><tr><th>Componente</th><th>Uso</th></tr></thead>
+                        <tbody>
+                            <tr><td>Scaffold</td><td>Estructura base de cada pantalla (top bar, contenido)</td></tr>
+                            <tr><td>Column, Row</td><td>Distribución vertical y horizontal de elementos</td></tr>
+                            <tr><td>Box</td><td>Alineaciones complejas o superposición</td></tr>
+                            <tr><td>OutlinedTextField</td><td>Campos de entrada con validación visual</td></tr>
+                            <tr><td>Button</td><td>Acciones principales</td></tr>
+                            <tr><td>Card</td><td>Presentación de eventos en listas</td></tr>
+                            <tr><td>Snackbar</td><td>Mensajes temporales de validación o confirmación</td></tr>
+                            <tr><td>Navigation</td><td>Transición entre pantallas (Login, Home, Agendar, etc.)</td></tr>
+                        </tbody>
+                    </table>
+                    <h4>9.2 Paleta de colores (Tema ANGIE)</h4>
+                    <p>La aplicación define una paleta basada en tonos verdes característicos:</p>
+                    <ul>
+                        <li>Verde principal: #4CAF50</li>
+                        <li>Verde oscuro: #2E7D32</li>
+                        <li>Verde claro: #A5D6A7</li>
+                        <li>Texto principal: gris oscuro sobre fondos claros</li>
+                    </ul>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3>10. FUNCIONALIDADES ADICIONALES</h3>
+                    <h4>10.1 Obtención de eventos próximos (7 días)</h4>
+                    <p>Método en el repositorio:</p>
+                    <div class="note"><code>SELECT * FROM eventos WHERE usuario_id = ? AND fecha BETWEEN ? AND ? ORDER BY fecha, hora</code><br>Los parámetros son: fecha actual y fecha actual + 7 días.</div>
+                    <h4>10.2 Eliminación automática de eventos pasados</h4>
+                    <p>Se ejecuta al iniciar la aplicación y cada vez que se consulta la lista de eventos. Borra eventos con fecha < LocalDate.now().</p>
+                    <h4>10.3 Prevención de nombres duplicados</h4>
+                    <p>Antes de insertar un nuevo evento, se consulta si ya existe un evento con el mismo <code>nombre_evento</code> y <code>usuario_id</code>.</p>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3>11. CONSIDERACIONES DE SEGURIDAD ACTUALES Y FUTURAS</h3>
+                    <table class="tech-table">
+                        <thead><tr><th>Aspecto</th><th>Estado actual</th><th>Recomendación futura</th></tr></thead>
+                        <tbody>
+                            <tr><td>Contraseñas almacenadas</td><td>Texto plano</td><td>Implementar hashing (bcrypt, PBKDF2)</td></tr>
+                            <tr><td>Validación de entrada</td><td>Implementada</td><td>Mantener actualizada contra inyección SQL</td></tr>
+                            <tr><td>Comunicación</td><td>Local, sin red</td><td>Migrar a cifrado TLS si se implementa sincronización en la nube</td></tr>
+                            <tr><td>Permisos</td><td>Notificaciones y boot completado</td><td>Revisar cada versión de Android</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="conclusion-card" data-aos="zoom-in" style="background: linear-gradient(135deg, var(--verde-dominante) 0%, #A5D6A7 100%); border-radius: var(--border-radius); padding: 2rem; text-align: center;">
+                    <i class="fas fa-microchip" style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--verde-oscuro);"></i>
+                    <h3 style="color: var(--verde-oscuro); margin-top: 0;">12. CONCLUSIÓN TÉCNICA</h3>
+                    <p>ANGIE es una aplicación Android bien estructurada que combina tecnologías modernas (Jetpack Compose, MVVM) con soluciones robustas para persistencia (SQLite), manejo de fechas (ThreeTenBP) y notificaciones inteligentes (AlarmManager + BroadcastReceiver). Su arquitectura permite un mantenimiento ágil y una escalabilidad clara hacia nuevas funcionalidades. Las validaciones estrictas y el control de datos garantizan la integridad del sistema, mientras que el sistema de recordatorios escalonados ofrece una experiencia de usuario superior en comparación con agendas básicas.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 ANGIE: Agenda Inteligente. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.5rem;">Manual Técnico — Versión 1.0</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        
+        document.getElementById('downloadTechBtn')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            window.open("Manual_Angie.pdf", "_blank");
+        });
+    </script>
+</body>
+</html>
