@@ -370,6 +370,73 @@ ul {
   opacity: 0.85;
 }
 
+/* ----- RECONOCIMIENTO ----- */
+.reconocimiento {
+  background: var(--color-bg);
+}
+
+.reconocimiento__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px);
+  padding: 40px;
+  border-radius: var(--radius);
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 8px 32px var(--color-shadow-heavy);
+}
+
+.reconocimiento__image {
+  flex: 0 0 280px;
+  max-width: 280px;
+}
+
+.reconocimiento__image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.reconocimiento__text {
+  flex: 1;
+}
+
+.reconocimiento__text .section__subtitle {
+  border-left-color: var(--color-primary);
+}
+
+.reconocimiento__text h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: var(--color-black);
+}
+
+.reconocimiento__text p {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .reconocimiento__wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .reconocimiento__image {
+    flex: 0 0 auto;
+    max-width: 220px;
+  }
+
+  .reconocimiento__text h2 {
+    font-size: 1.8rem;
+  }
+}
+
 /* ----- 9. MENÚ ----- */
 .menu {
   background: var(--color-bg);
