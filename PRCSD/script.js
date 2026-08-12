@@ -206,8 +206,8 @@
       'nav.info': 'Info',
       'nav.contact': 'Contact',
       'hero.welcome': 'Welcome to',
-      'hero.name': 'Club Campestre Santo Domingo',
-      'hero.subtitle': 'Traditional Oaxacan cuisine · Countryside atmosphere · Flavor that unites families',
+      'hero.name': 'Restaurant Campestre Santo Domingo',
+      'hero.subtitle': 'Traditional Oaxacan cuisine · Atmosphere and Flavor that unites families',
       'hero.cta': 'Discover our menu',
       'history.badge': 'Our legacy',
       'history.title': 'A dream that began in 2018',
@@ -220,7 +220,7 @@
       'identity.title': 'Mission · Vision · Purpose',
       'identity.subtitle': 'What drives us every day',
       'identity.mission.title': 'Mission',
-      'identity.mission.text': 'To offer a unique culinary experience blending local ingredients with traditional techniques in a family-friendly countryside setting.',
+      'identity.mission.text': 'To offer a unique culinary experience blending local ingredients with traditional techniques in a unique and family-friendly atmosphere.',
       'identity.vision.title': 'Vision',
       'identity.vision.text': 'To be the benchmark of Oaxacan gastronomy in the region, recognized for our authenticity, warmth and quality.',
       'identity.purpose.title': 'Purpose',
@@ -232,27 +232,27 @@
       'menu.breakfast.desc': 'Enjoy our breakfast packages that include the main dish with fruit, coffee and freshly baked bread. Our <strong>Dominican Chicken Breasts</strong> are a unique specialty you won\'t find anywhere else.',
       'menu.breakfast.hours': '* Packages available from 7:30 am to 1:00 pm',
       'menu.lunch.title': 'Lunches',
-      'menu.lunch.desc': 'Our lunches represent the perfect balance between tradition and homemade flavor. We offer everything from entomatadas and enfrijoladas to grilled meats with a unique taste.',
+      'menu.lunch.desc': 'Our <strong>traditional lunches</strong> are the perfect balance between <strong>homemade flavor</strong> and top quality. Enjoy everything from irresistible <strong>entomatadas and enfrijoladas</strong> with handmade tortillas, to juicy <strong>grilled meats</strong> with a <strong>unique and unmatched taste</strong>. The ideal feast to start your day!',
       'menu.lunch.portion': 'Extremely generous portions!',
       'menu.dinner.title': 'Dinners',
-      'menu.dinner.desc': 'Our dinners are made with family recipes passed down through generations. Our <strong>grilled meats with unique seasoning</strong> and a variety of dishes that seek maximum satisfaction stand out.',
+      'menu.dinner.desc': 'Our dinners are made with family recipes passed down through generations. Our <strong>grilled meats with unique seasoning</strong> and a variety of dishes that seek maximum palate enjoyment stand out.',
       'menu.dinner.note': 'All dishes are made to order with fresh regional ingredients.',
       'menu.traditional.title': 'Traditional Flavor',
       'menu.traditional.desc': 'Enjoy our authentic <strong>memelas, tlayudas and quesadillas</strong> made with regional corn and handmade tortillas. The taste of Oaxaca in every bite.',
       'menu.traditional.handmade': 'Handmade tortillas with regional corn.',
       'menu.seafood.title': 'Seafood Fridays',
-      'menu.seafood.desc': 'Fridays are the exclusive day to enjoy our <strong>fresh seafood</strong> with maximum quality and freshness. Ask about our daily specials.',
+      'menu.seafood.desc': 'On Fridays, live an <strong>unmatched gastronomic experience</strong> with our exclusive selection of <strong>fresh seafood</strong>. We guarantee perfect textures and <strong>intense flavors of maximum quality</strong> in every dish. The ideal seafood feast to treat yourself with the <strong>authentic taste of the sea</strong>!',
       'menu.seafood.fresh': 'Always with maximum quality and freshness.',
       'menu.sunday.title': 'Family Sundays',
-      'menu.sunday.desc': 'Sundays are for sharing big. We offer <strong>special dishes for the whole family</strong>, with generous portions and that homemade touch that characterizes us.',
+      'menu.sunday.desc': 'Sundays are for sharing big. We offer <strong>special dishes for the whole family</strong>, with generous portions and that homemade touch that characterizes us. <br>Ask about our daily specials.',
       'menu.sunday.note': 'Come with your family and enjoy an unforgettable Sunday.',
       'menu.cold.title': 'Cold Drinks',
-      'menu.cold.desc': 'Refresh your palate with our selection of <strong>natural flavored waters</strong>, juices and soft drinks. We prepare every drink fresh with seasonal fruits.',
+      'menu.cold.desc': '<strong>Refresh your palate</strong> with our exclusive selection of <strong>natural flavored waters</strong>, artisanal juices and premium soft drinks. We prepare every drink <strong>completely fresh</strong> with seasonal fruits of <strong>maximum quality and ripeness</strong>. Let yourself be captivated by an <strong>authentic and deliciously refreshing taste</strong> in every sip!',
       'menu.hot.title': 'Hot Drinks',
-      'menu.hot.desc': 'Enjoy our <strong>hot drinks</strong> like pot coffee, traditional chocolate, atoles and regional herb teas. The warmth that comforts the soul.',
+      'menu.hot.desc': 'Enjoy the aroma of our <strong>traditional hot drinks</strong>, made with authentic ingredients of <strong>maximum quality</strong>. Savor our exquisite <strong>pot coffee</strong>, hand‑whipped traditional chocolate, creamy <strong>atoles</strong> and regional herb teas. Every cup gives you an <strong>unmatched flavor</strong> that comforts the soul!',
       'menu.cocktails.title': 'Cocktails',
-      'menu.cocktails.desc': 'Our cocktails honor the flavors of Oaxaca with <strong>mezcal, tequila and premium liquors</strong>. Try our specialties like the <strong>Mezcal Margarita</strong> and the <strong>Mezcal Old Fashioned</strong>.',
-      'menu.pdf': 'View full menu in PDF',
+      'menu.cocktails.desc': 'Our <strong>signature cocktails</strong> pay homage to Oaxaca with <strong>ancestral mezcal</strong>, top‑tier tequila and premium liquors. Surprise your senses with the <strong>unmatched flavor</strong> of our specialties: the exotic <strong>Guava Mezcalina</strong> and the sophisticated <strong>Arroqueño Mezcal</strong>. A <strong>top‑quality</strong> experience in every sip!',
+      'menu.pdf': 'View full menu',
       'info.badge': 'Visit us',
       'info.title': 'Hours and location',
       'info.subtitle': 'We await you with open arms',
@@ -283,49 +283,52 @@
       'footer.payments.terminal': 'Terminal (Cards)',
       'footer.payments.invoice': 'Invoicing available',
       'footer.rights': 'All rights reserved.',
-      'footer.foundation': 'Founded in 2023 · Traditional Oaxacan cuisine',
+      'footer.foundation': 'Founded in 2018 · Traditional Oaxacan cuisine',
+      'recognition.badge': 'Recognition',
+      'recognition.title': 'iOverlander',
+      'recognition.desc': 'Awarded by the traveler community as a reference place in Ocotlán de Morelos.',
     },
   };
 
-let currentLang = 'es';
-const langToggle = document.getElementById('langToggle');
-const langLabel = document.getElementById('langLabel');
+  let currentLang = 'es';
+  const langToggle = document.getElementById('langToggle');
+  const langLabel = document.getElementById('langLabel');
 
-// Guardar el contenido original en español de todos los elementos con data-i18n
-const i18nElements = document.querySelectorAll('[data-i18n]');
-i18nElements.forEach(function (el) {
-  // Almacenamos el HTML original (español) en un atributo personalizado
-  el.setAttribute('data-original', el.innerHTML);
-});
-
-function setLanguage(lang) {
-  currentLang = lang;
-  if (langLabel) langLabel.textContent = lang.toUpperCase();
-
+  // Guardar el contenido original en español de todos los elementos con data-i18n
+  const i18nElements = document.querySelectorAll('[data-i18n]');
   i18nElements.forEach(function (el) {
-    const key = el.getAttribute('data-i18n');
-    if (lang === 'es') {
-      // Restaurar el contenido original en español
-      el.innerHTML = el.getAttribute('data-original');
-    } else if (lang === 'en' && translations.en && translations.en[key]) {
-      // Aplicar traducción al inglés (con HTML si existe)
-      el.innerHTML = translations.en[key];
-    }
-    // Si no hay traducción, se deja el original (español)
+    // Almacenamos el HTML original (español) en un atributo personalizado
+    el.setAttribute('data-original', el.innerHTML);
   });
 
-  document.documentElement.lang = lang;
-}
+  function setLanguage(lang) {
+    currentLang = lang;
+    if (langLabel) langLabel.textContent = lang.toUpperCase();
 
-if (langToggle) {
-  langToggle.addEventListener('click', function () {
-    const newLang = currentLang === 'es' ? 'en' : 'es';
-    setLanguage(newLang);
-  });
-}
+    i18nElements.forEach(function (el) {
+      const key = el.getAttribute('data-i18n');
+      if (lang === 'es') {
+        // Restaurar el contenido original en español
+        el.innerHTML = el.getAttribute('data-original');
+      } else if (lang === 'en' && translations.en && translations.en[key]) {
+        // Aplicar traducción al inglés (con HTML si existe)
+        el.innerHTML = translations.en[key];
+      }
+      // Si no hay traducción, se deja el original (español)
+    });
 
-// Inicializar en español (restaura los originales)
-setLanguage('es');
+    document.documentElement.lang = lang;
+  }
+
+  if (langToggle) {
+    langToggle.addEventListener('click', function () {
+      const newLang = currentLang === 'es' ? 'en' : 'es';
+      setLanguage(newLang);
+    });
+  }
+
+  // Inicializar en español (restaura los originales)
+  setLanguage('es');
 
   // ----- 7. FOOTER: año actual -----
   const footerYear = document.getElementById('footerYear');
