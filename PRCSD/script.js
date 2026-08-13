@@ -1,5 +1,5 @@
 // ============================================================
-// Club Campestre Santo Domingo — JavaScript (ES6+)
+// Restaurant Campestre Santo Domingo — JavaScript (ES6+)
 // Funciones: Menú móvil, Scroll suave, Formulario, Traducción
 // ============================================================
 
@@ -211,7 +211,7 @@
       'hero.cta': 'Discover our menu',
       'history.badge': 'Our legacy',
       'history.title': 'A dream that began in 2018',
-      'history.subtitle': 'An Oaxacan family promoting gastronomic culture and connection with nature',
+      'history.subtitle': 'An Oaxacan family promoting gastronomic culture and offering a unique experience',
       'history.p1': 'A project that started in <strong>2018</strong> by an Oaxacan family seeking to promote Oaxacan gastronomic culture and contact with nature.',
       'history.p2': 'At Santo Domingo, we offer an authentic and welcoming gastronomic experience for all families, in a natural and countryside setting. Our commitment is to offer traditional dishes, prepared with the best ingredients from local suppliers.',
       'history.p3': 'We want every visit to be an opportunity for our diners to enjoy the best of Oaxacan land and create special family memories.',
@@ -225,18 +225,24 @@
       'identity.vision.text': 'To be the benchmark of Oaxacan gastronomy in the region, recognized for our authenticity, warmth and quality.',
       'identity.purpose.title': 'Purpose',
       'identity.purpose.text': 'To rescue and preserve Oaxaca\'s culinary tradition, creating unforgettable moments around the table.',
+      'recognition.badge': 'Recognition',
+      'recognition.title': 'Restaurant Guru',
+      'recognition.desc': 'Restaurant Campestre Santo Domingo has been awarded the Restaurant Guru Recommendation Badge, one of the largest gastronomic platforms in the world with over 30 million users. This achievement is thanks to the preference of all of you in Ocotlán de Morelos. Come celebrate with us and discover why we are a reference place!',
+      'recognition.title.overlander': 'iOverlander',
+      'recognition.desc.overlander': 'Awarded by the traveler community as a reference place in Ocotlán de Morelos.',
       'menu.badge': 'Gastronomy',
       'menu.title': 'Our menu',
       'menu.subtitle': 'Made with fresh ingredients and lots of love',
       'menu.breakfast.title': 'Breakfast Packages',
-      'menu.breakfast.desc': 'Enjoy our breakfast packages that include the main dish with fruit, coffee and freshly baked bread. Our <strong>Dominican Chicken Breasts</strong> are a unique specialty you won\'t find anywhere else.',
+      'menu.breakfast.desc': 'Enjoy our <strong>breakfast packages</strong> that include a main dish, select fruit, coffee and freshly baked bread. Each option is made with <strong>top quality</strong> ingredients and homemade seasoning, offering you <strong>unique specialties</strong> and an <strong>unmatched flavor</strong> you won\'t find anywhere else.',
       'menu.breakfast.hours': '* Packages available from 7:30 am to 1:00 pm',
       'menu.lunch.title': 'Lunches',
       'menu.lunch.desc': 'Our <strong>traditional lunches</strong> are the perfect balance between <strong>homemade flavor</strong> and top quality. Enjoy everything from irresistible <strong>entomatadas and enfrijoladas</strong> with handmade tortillas, to juicy <strong>grilled meats</strong> with a <strong>unique and unmatched taste</strong>. The ideal feast to start your day!',
-      'menu.lunch.portion': 'Extremely generous portions!',
+      'menu.lunch.portion': 'Generous portions!',
       'menu.dinner.title': 'Dinners',
-      'menu.dinner.desc': 'Our dinners are made with family recipes passed down through generations. Our <strong>grilled meats with unique seasoning</strong> and a variety of dishes that seek maximum palate enjoyment stand out.',
-      'menu.dinner.note': 'All dishes are made to order with fresh regional ingredients.',
+      'menu.dinner.desc': 'Enjoy our <strong>regional dinners</strong> prepared fresh with local ingredients and the <strong>highest quality</strong>. Every day we offer a different variety of dishes with a <strong>unique and unmatched seasoning</strong>.',
+      'menu.dinner.note': 'Coming soon to our dinner section! Savor the magic of <strong>chiles en nogada</strong> starting in mid-August. The <strong>authentic flavor</strong> of the season!',
+      'menu.dinner.desc2': 'Come and live a <strong>unique culinary experience</strong> at our table! We invite you to discover a space where the warmth of service and the atmosphere come together to give you <strong>memorable moments</strong>. Let yourself be pampered by the magic of our cuisine and share an unparalleled moment with <strong>top‑level dishes</strong> that celebrate the art of good eating.',
       'menu.traditional.title': 'Traditional Flavor',
       'menu.traditional.desc': 'Enjoy our authentic <strong>memelas, tlayudas and quesadillas</strong> made with regional corn and handmade tortillas. The taste of Oaxaca in every bite.',
       'menu.traditional.handmade': 'Handmade tortillas with regional corn.',
@@ -244,7 +250,7 @@
       'menu.seafood.desc': 'On Fridays, live an <strong>unmatched gastronomic experience</strong> with our exclusive selection of <strong>fresh seafood</strong>. We guarantee perfect textures and <strong>intense flavors of maximum quality</strong> in every dish. The ideal seafood feast to treat yourself with the <strong>authentic taste of the sea</strong>!',
       'menu.seafood.fresh': 'Always with maximum quality and freshness.',
       'menu.sunday.title': 'Family Sundays',
-      'menu.sunday.desc': 'Sundays are for sharing big. We offer <strong>special dishes for the whole family</strong>, with generous portions and that homemade touch that characterizes us. <br>Ask about our daily specials.',
+      'menu.sunday.desc': 'Sundays are for sharing big. We offer <strong>special dishes for the whole family</strong>, with generous portions and that homemade touch that characterizes us.<br>Ask about our daily specials.',
       'menu.sunday.note': 'Come with your family and enjoy an unforgettable Sunday.',
       'menu.cold.title': 'Cold Drinks',
       'menu.cold.desc': '<strong>Refresh your palate</strong> with our exclusive selection of <strong>natural flavored waters</strong>, artisanal juices and premium soft drinks. We prepare every drink <strong>completely fresh</strong> with seasonal fruits of <strong>maximum quality and ripeness</strong>. Let yourself be captivated by an <strong>authentic and deliciously refreshing taste</strong> in every sip!',
@@ -284,9 +290,6 @@
       'footer.payments.invoice': 'Invoicing available',
       'footer.rights': 'All rights reserved.',
       'footer.foundation': 'Founded in 2018 · Traditional Oaxacan cuisine',
-      'recognition.badge': 'Recognition',
-      'recognition.title': 'iOverlander',
-      'recognition.desc': 'Awarded by the traveler community as a reference place in Ocotlán de Morelos.',
     },
   };
 
@@ -297,7 +300,6 @@
   // Guardar el contenido original en español de todos los elementos con data-i18n
   const i18nElements = document.querySelectorAll('[data-i18n]');
   i18nElements.forEach(function (el) {
-    // Almacenamos el HTML original (español) en un atributo personalizado
     el.setAttribute('data-original', el.innerHTML);
   });
 
@@ -308,10 +310,8 @@
     i18nElements.forEach(function (el) {
       const key = el.getAttribute('data-i18n');
       if (lang === 'es') {
-        // Restaurar el contenido original en español
         el.innerHTML = el.getAttribute('data-original');
       } else if (lang === 'en' && translations.en && translations.en[key]) {
-        // Aplicar traducción al inglés (con HTML si existe)
         el.innerHTML = translations.en[key];
       }
       // Si no hay traducción, se deja el original (español)
@@ -327,16 +327,13 @@
     });
   }
 
-  // Inicializar en español (restaura los originales)
-  setLanguage('es');
-
   // ----- 7. FOOTER: año actual -----
   const footerYear = document.getElementById('footerYear');
   if (footerYear) {
     footerYear.textContent = new Date().getFullYear();
   }
 
-  // ----- 8. INICIALIZAR TRADUCCIÓN (español base) -----
+  // ----- 8. INICIALIZAR TRADUCCIÓN -----
   setLanguage('es');
 
 })();
