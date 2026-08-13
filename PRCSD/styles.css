@@ -1,5 +1,5 @@
 /* ============================================================
-   Club Campestre Santo Domingo — Premium Stylesheet
+   Restaurant Campestre Santo Domingo — Premium Stylesheet
    Paleta: crema #FFDBBB · naranja #e89b2a · negro
    Mobile-first · BEM · CSS Custom Properties
    ============================================================ */
@@ -133,6 +133,7 @@ ul {
   background: var(--color-black);
   color: var(--color-white);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  margin-top: 50px;
 }
 
 .btn--primary:hover {
@@ -151,7 +152,7 @@ ul {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* ----- 5. NAVBAR (centrado) ----- */
+/* ----- 5. NAVBAR ----- */
 .navbar {
   position: fixed;
   top: 0;
@@ -250,13 +251,15 @@ ul {
 /* ----- 6. HERO ----- */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--navbar-height));
+  margin-top: var(--navbar-height);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: var(--navbar-height);
-  background: url('img/img-Hero1.jpg') center/cover no-repeat;
+  padding: 20px;
+  box-sizing: border-box;
+  background: url('img/img-HeroPD.jpg') top center / cover no-repeat;
 }
 
 .hero__overlay {
@@ -270,8 +273,11 @@ ul {
   position: relative;
   z-index: 2;
   max-width: 800px;
-  padding: 40px 20px;
+  margin-top: 0;
   color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero__title {
@@ -290,7 +296,7 @@ ul {
 .hero__subtitle {
   font-size: 1.2rem;
   font-weight: 400;
-  margin-bottom: 32px;
+  margin-bottom: 0;
   opacity: 0.9;
 }
 
@@ -420,23 +426,6 @@ ul {
   opacity: 0.85;
 }
 
-@media (max-width: 768px) {
-  .reconocimiento__wrapper {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px 20px;
-  }
-
-  .reconocimiento__image {
-    flex: 0 0 auto;
-    max-width: 220px;
-  }
-
-  .reconocimiento__text h2 {
-    font-size: 1.8rem;
-  }
-}
-
 /* ----- 9. MENÚ ----- */
 .menu {
   background: var(--color-bg);
@@ -533,7 +522,7 @@ ul {
   margin-top: 60px;
 }
 
-/* ----- 10. INFO (Horarios + Mapa) ----- */
+/* ----- 10. INFO ----- */
 .info {
   background: var(--color-bg);
 }
@@ -778,13 +767,8 @@ ul {
 }
 
 @keyframes pulse-whatsapp {
-  0%,
-  100% {
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
-  }
-  50% {
-    box-shadow: 0 4px 40px rgba(37, 211, 102, 0.55);
-  }
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35); }
+  50% { box-shadow: 0 4px 40px rgba(37, 211, 102, 0.55); }
 }
 
 /* ----- 13. FOOTER ----- */
@@ -867,7 +851,7 @@ ul {
   opacity: 0.5;
 }
 
-/* ----- 14. RESPONSIVE (mejorado) ----- */
+/* ----- 14. RESPONSIVE ----- */
 @media (max-width: 992px) {
   .historia__grid,
   .menu__card,
@@ -876,41 +860,18 @@ ul {
   .contacto__grid {
     grid-template-columns: 1fr;
   }
-
-  .menu__card.reverse {
-    direction: ltr;
-  }
-
-  .menu__card.reverse .menu__card-text {
-    padding: 30px;
-  }
-
-  .menu__card-text {
-    padding: 30px;
-  }
-
-  .hero__title {
-    font-size: 2.8rem;
-  }
-
-  .section__header h2 {
-    font-size: 2rem;
-  }
-
-  .identidad__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .menu__card.reverse { direction: ltr; }
+  .menu__card.reverse .menu__card-text { padding: 30px; }
+  .menu__card-text { padding: 30px; }
+  .hero__title { font-size: 2.8rem; }
+  .section__header h2 { font-size: 2rem; }
+  .identidad__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  :root {
-    --navbar-height: 64px;
-  }
+  :root { --navbar-height: 64px; }
 
-  .navbar__toggle {
-    display: block;
-  }
-
+  .navbar__toggle { display: block; }
   .navbar__nav {
     position: fixed;
     top: var(--navbar-height);
@@ -923,96 +884,67 @@ ul {
     transform: translateX(100%);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     overflow-y: auto;
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
+    box-shadow: -8px 0 32px rgba(0,0,0,0.1);
     justify-content: flex-start;
   }
+  .navbar__nav.is-open { transform: translateX(0); }
+  .navbar__menu { flex-direction: column; align-items: stretch; gap: 16px; }
+  .navbar__menu .nav-link { font-size: 1.1rem; padding: 8px 0; }
+  .lang-btn { align-self: flex-start; }
 
-  .navbar__nav.is-open {
-    transform: translateX(0);
-  }
-
-  .navbar__menu {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-
-  .navbar__menu .nav-link {
-    font-size: 1.1rem;
-    padding: 8px 0;
-  }
-
-  .lang-btn {
-    align-self: flex-start;
-  }
-
+  /* Ajuste Hero Base Tablet */
   .hero {
-    min-height: 100vh;
-  }
-
-  .hero__title {
-    font-size: 2.2rem;
-  }
-
-  .hero__subtitle {
-    font-size: 1rem;
-  }
-
-  .identidad__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer__grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    text-align: center;
-  }
-
-  .contacto__social-icons {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    height: calc(100dvh - var(--navbar-height));
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
   }
+  .hero__content { margin-top: 0; }
+  .hero__title { font-size: 2.2rem; }
+  .hero__subtitle { font-size: 1rem; }
+  .hero__content .btn--primary { margin-top: 30px; }
 
-  .whatsapp-float {
-    width: 56px;
-    height: 56px;
-    font-size: 2rem;
-    bottom: 16px;
-    right: 16px;
-  }
+  .identidad__grid { grid-template-columns: 1fr; }
+  .footer__grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+  .contacto__social-icons { justify-content: center; }
+  .whatsapp-float { width: 56px; height: 56px; font-size: 2rem; bottom: 16px; right: 16px; }
+  .whatsapp-float__tooltip { display: none; }
 
-  .whatsapp-float__tooltip {
-    display: none;
+  .reconocimiento__wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
   }
+  .reconocimiento__image {
+    flex: 0 0 auto;
+    max-width: 220px;
+  }
+  .reconocimiento__text h2 { font-size: 1.8rem; }
 }
 
 @media (max-width: 550px) {
-  .section {
-    padding: 56px 0;
+  .section { padding: 56px 0; }
+  
+  /* Corrección crítica para teléfonos móviles */
+  .hero {
+    height: calc(100dvh - var(--navbar-height));
+    background-position: center center; /* Centra la foto de fondo */
   }
-
-  .hero__title {
-    font-size: 1.8rem;
-  }
-
-  .section__header h2 {
-    font-size: 1.6rem;
-  }
-
-  .section__header p {
+  .hero__title { font-size: 1.8rem; padding: 0 10px; }
+  .hero__subtitle { font-size: 0.95rem; padding: 0 15px; line-height: 1.4; }
+  .hero__content .btn--primary {
+    margin-top: 30px;
+    padding: 12px 28px;
     font-size: 0.95rem;
   }
-
-  .menu__category-title {
-    font-size: 1.3rem;
-  }
-
-  .info__map iframe {
-    height: 200px;
-  }
-
-  .contacto__form-wrapper {
-    padding: 20px;
-  }
+  .section__header h2 { font-size: 1.6rem; }
+  .section__header p { font-size: 0.95rem; }
+  .menu__category-title { font-size: 1.3rem; }
+  .info__map iframe { height: 200px; }
+  .contacto__form-wrapper { padding: 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
