@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>AgroPecc – Cotización</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- reCAPTCHA v3 (placeholder) -->
+  <script src="https://www.google.com/recaptcha/api.js?render=TU_SITE_KEY"></script>
+</head>
+<body>
+  <main class="form-container">
+    <div class="form-card">
+      <h1 class="form-title">Déjanos tus datos y te contactaremos pronto.</h1>
+      <p class="form-subtitle">Descubre nuestros modelos de negocio y aumenta tu productividad</p>
+
+      <form id="leadForm" novalidate>
+        <div class="form-group">
+          <label for="nombre">Nombre y primer apellido *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+          <span class="error-message" id="nombreError">Ingresa nombre y apellido (solo letras)</span>
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono (10 dígitos) *</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Ej. 9511234567" required>
+          <span class="error-message" id="telefonoError">Debe tener 10 dígitos numéricos</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico *</label>
+          <input type="email" id="email" name="email" placeholder="Ej. juan@correo.com" required>
+          <span class="error-message" id="emailError">Ingresa un correo válido</span>
+        </div>
+
+        <div class="form-group">
+          <label for="municipio">Municipio  *</label>
+          <input type="text" id="municipio" name="municipio" placeholder="Ej. Oaxaca de Juárez" required>
+          <span class="error-message" id="municipioError">Solo letras y mínimo 3 caracteres</span>
+        </div>
+
+        <div class="form-group">
+          <label for="tamanio">Tamaño de su operación (opcional)</label>
+          <select id="tamanio" name="tamanio">
+            <option value="">Selecciona una opción</option>
+            <option value="Menos de 50 cerdos">Menos de 50 cerdos</option>
+            <option value="50 - 200 cerdos">50 - 200 cerdos</option>
+            <option value="Más de 200 cerdos">Más de 200 cerdos</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="como_conocio">¿Cómo nos conoció? (opcional)</label>
+          <select id="como_conocio" name="como_conocio">
+            <option value="">Selecciona una opción</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Recomendación">Recomendación</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          Enviar cotización
+        </button>
+        <div id="formStatus" class="form-status"></div>
+      </form>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

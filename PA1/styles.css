@@ -1,0 +1,341 @@
+/* ===== RESET Y BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #FFFFFF;
+  color: #4A5568;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* ===== CONTENEDORES ===== */
+.form-container,
+.thankyou-container {
+  width: 100%;
+  max-width: 480px; /* más pequeño en desktop */
+  margin: 0 auto;
+}
+
+.form-card,
+.thankyou-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 1.8rem 1.2rem; /* reducido */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid #edf2f7;
+}
+
+/* ===== TÍTULOS ===== */
+.form-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #2d3748;
+  margin-bottom: 0.3rem;
+}
+
+.form-subtitle {
+  font-size: 0.95rem;
+  color: #4A5568;
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+}
+
+.thankyou-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.3rem;
+}
+
+.thankyou-message {
+  font-size: 0.95rem;
+  color: #4A5568;
+  margin-bottom: 1.2rem;
+}
+
+/* ===== FORMULARIO ===== */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #2d3748;
+  margin-bottom: 0.2rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  background: #F7FAFC;
+  color: #2d3748;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #4A5568;
+  box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.12);
+  background: #ffffff;
+}
+
+input::placeholder {
+  color: #a0aec0;
+}
+
+.error-message {
+  display: none;
+  font-size: 0.75rem;
+  color: #e53e3e;
+  margin-top: 0.2rem;
+}
+
+.input-error input,
+.input-error select {
+  border-color: #e53e3e;
+}
+
+.input-error .error-message {
+  display: block;
+}
+
+/* ===== BOTÓN ===== */
+.btn-submit {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  background: #4A5568;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.1s;
+  margin-top: 0.3rem;
+}
+
+.btn-submit:hover {
+  background: #2d3748;
+  transform: scale(1.01);
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-status {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  text-align: center;
+  min-height: 1.5rem;
+}
+
+/* ===== PÁGINA DE AGRADECIMIENTO ===== */
+.thankyou-card {
+  text-align: center;
+}
+
+.codigo-recuadro {
+  background: #2d3748;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 1rem 0.5rem;
+  border-radius: 14px;
+  margin: 1.2rem 0;
+  word-break: break-all;
+  border: 2px solid #4A5568;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#codigoTexto {
+  display: inline-block;
+}
+
+.email-info {
+  font-size: 0.9rem;
+  background: #F7FAFC;
+  padding: 0.7rem;
+  border-radius: 10px;
+  margin: 0.8rem 0 1.2rem;
+  color: #4A5568;
+}
+
+.email-info strong {
+  color: #2d3748;
+}
+
+.contacto-pronto {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2d3748;
+  background: #e2e8f0;
+  padding: 0.6rem;
+  border-radius: 10px;
+  margin: 1rem 0 1.5rem;
+}
+
+.btn-whatsapp,
+.btn-download {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.25s, transform 0.1s;
+  margin-bottom: 0.6rem;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #ffffff;
+}
+
+.btn-whatsapp:hover {
+  background: #1da851;
+  transform: scale(1.01);
+}
+
+.btn-download {
+  background: #4A5568;
+  color: #ffffff;
+}
+
+.btn-download:hover {
+  background: #2d3748;
+  transform: scale(1.01);
+}
+
+.btn-whatsapp:active,
+.btn-download:active {
+  transform: scale(0.98);
+}
+
+.volver {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+}
+
+.volver a {
+  color: #4A5568;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.volver a:hover {
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVIDAD ===== */
+
+/* Móviles pequeños (<= 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+  .form-card,
+  .thankyou-card {
+    padding: 1.5rem 1rem;
+  }
+  .form-title {
+    font-size: 1.4rem;
+  }
+  .codigo-recuadro {
+    font-size: 1.5rem;
+    padding: 0.8rem 0.3rem;
+  }
+}
+
+/* Tablets y escritorio pequeño (>= 600px) */
+@media (min-width: 600px) {
+  .form-container,
+  .thankyou-container {
+    max-width: 420px; /* más compacto */
+  }
+
+  .form-card,
+  .thankyou-card {
+    padding: 2rem 1.8rem;
+  }
+
+  .form-title {
+    font-size: 1.8rem;
+  }
+
+  .codigo-recuadro {
+    font-size: 2.2rem;
+    padding: 1.2rem 0.8rem;
+  }
+
+  .btn-whatsapp,
+  .btn-download {
+    width: auto;
+    min-width: 200px;
+    display: inline-block;
+    margin-right: 0.4rem;
+  }
+}
+
+/* Escritorio grande (>= 1024px) */
+@media (min-width: 1024px) {
+  body {
+    padding: 2rem;
+  }
+  .form-container,
+  .thankyou-container {
+    max-width: 440px;
+  }
+  .form-card,
+  .thankyou-card {
+    padding: 2.2rem 2rem;
+    border-radius: 28px;
+  }
+  .form-title {
+    font-size: 2rem;
+  }
+  .codigo-recuadro {
+    font-size: 2.5rem;
+    padding: 1.4rem 1rem;
+  }
+  .btn-whatsapp,
+  .btn-download {
+    min-width: 220px;
+    font-size: 1rem;
+  }
+}
+
+/* ===== UTILIDADES ===== */
+.hidden {
+  display: none !important;
+}
