@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>¡Gracias! - AgroPecc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+  <main class="thankyou-container">
+    <div class="thankyou-card">
+      <h2 class="thankyou-title">¡Gracias por contactarnos!</h2>
+      <p class="thankyou-message">Tu código de seguimiento es:</p>
+
+      <!-- Recuadro del código -->
+      <div id="codigoRecuadro" class="codigo-recuadro">
+        <span id="codigoTexto">AGP-CARLOS-123456789</span>
+      </div>
+
+      <!-- Mensaje de contacto pronto -->
+      <div class="contacto-pronto">
+        ✅ Nos pondremos en contacto con usted lo más pronto posible.
+      </div>
+
+      <!-- Método 1: Correo -->
+      <p class="email-info" id="emailInfo">
+         Revisa tu correo <strong id="emailUsuario">usuario@correo.com</strong>, te hemos enviado tu código.
+      </p>
+
+      <!-- Método 2: WhatsApp -->
+      <a href="#" id="whatsappLink" class="btn-whatsapp" target="_blank">
+         Guardar en WhatsApp
+      </a>
+
+      <!-- Método 3: Descargar imagen -->
+      <button id="downloadBtn" class="btn-download">
+        ⬇ Descargar mi código como imagen
+      </button>
+
+      <p class="volver"><a href="index.html">← Volver al formulario</a></p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
