@@ -8,14 +8,12 @@ const RECAPTCHA_SITE_KEY = 'TU_SITE_KEY'; // <-- REEMPLAZAR
 //  DETECCIÓN DE PÁGINA Y EJECUCIÓN
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-    const path = window.location.pathname;
-    const isIndex = path.endsWith('index.html') || path === '/' || path === '';
-    const isThanks = path.includes('gracias.html');
-
-    if (isIndex) {
-        initFormPage();
-    } else if (isThanks) {
+    // Si la URL contiene 'gracias.html', ejecuta la página de agradecimiento.
+    // En cualquier otro caso (incluyendo /, /index.html, /repositorio/, etc.), ejecuta el formulario.
+    if (window.location.pathname.includes('gracias.html')) {
         initThanksPage();
+    } else {
+        initFormPage();
     }
 });
 
