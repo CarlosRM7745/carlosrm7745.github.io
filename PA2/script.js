@@ -5,12 +5,12 @@ const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz.../exec'; 
 const RECAPTCHA_SITE_KEY = 'TU_SITE_KEY'; // <-- REEMPLAZAR
 
 // ============================================================
-//  DETECCIÓN DE PÁGINA Y EJECUCIÓN
+//  DETECCIÓN DE PÁGINA Y EJECUCIÓN (mejorada)
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Si la URL contiene 'gracias.html', ejecuta la página de agradecimiento.
-    // En cualquier otro caso (incluyendo /, /index.html, /repositorio/, etc.), ejecuta el formulario.
-    if (window.location.pathname.includes('gracias.html')) {
+    // Detecta si la URL actual contiene 'gracias.html' (considerando subcarpetas)
+    const isThanksPage = window.location.pathname.includes('gracias.html');
+    if (isThanksPage) {
         initThanksPage();
     } else {
         initFormPage();
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================================
-//  PÁGINA DEL FORMULARIO
+//  PÁGINA DEL FORMULARIO (con redirección asegurada)
 // ============================================================
 function initFormPage() {
     const form = document.getElementById('leadForm');
@@ -47,38 +47,32 @@ function initFormPage() {
 
         let valid = true;
 
-        // ---- Validación de nombre (solo letras, al menos 2 palabras) ----
+        // ---- Validación de nombre ----
         const nombreVal = nombre.value.trim();
         if (!nombreVal || !/^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/.test(nombreVal) || nombreVal.split(/\s+/).length < 2) {
             setError(nombre);
             valid = false;
         }
 
-        // ---- Validación de teléfono (10 dígitos numéricos) ----
-        const telefonoVal = telefono.value.trim().replace(/\s/g, ''); // quitar espacios
+        // ---- Validación de teléfono ----
+        const telefonoVal = telefono.value.trim().replace(/\s/g, '');
         if (!/^\d{10}$/.test(telefonoVal)) {
             setError(telefono);
             valid = false;
         }
 
-        // ---- Validación de email mejorada ----
+        // ---- Validación de email ----
         const emailVal = email.value.trim();
-
-        // Expresión estándar basada en la especificación HTML5
         const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
         if (!emailVal) {
-            setError(email, "El correo es obligatorio.");
+            setError(email);
             valid = false;
-        } else if (emailVal.length > 254) {
-            setError(email, "El correo es demasiado largo.");
-            valid = false;
-        } else if (!emailRegex.test(emailVal)) {
-            setError(email, "El formato del correo no es válido.");
+        } else if (emailVal.length > 254 || !emailRegex.test(emailVal)) {
+            setError(email);
             valid = false;
         }
 
-        // ---- Validación de municipio (solo letras, mínimo 3 caracteres) ----
+        // ---- Validación de municipio ----
         const municipioVal = municipio.value.trim();
         if (!municipioVal || !/^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/.test(municipioVal) || municipioVal.length < 4) {
             setError(municipio);
@@ -94,33 +88,41 @@ function initFormPage() {
         // Generar código de seguimiento
         const codigo = `AGP-CRM-${Date.now()}`;
 
+        // Preparar datos
+        const formData = {
+            nombre: nombreVal,
+            telefono: telefonoVal,
+            email: emailVal,
+            municipio: municipioVal,
+            tamanio: document.getElementById('tamanio').value,
+            como_conocio: document.getElementById('como_conocio').value,
+            codigo: codigo,
+        };
+
         try {
+            // Ejecutar reCAPTCHA (si está configurado)
             const token = await executeRecaptcha();
-            const formData = {
-                nombre: nombreVal,
-                telefono: telefonoVal,
-                email: emailVal,
-                municipio: municipioVal,
-                tamanio: document.getElementById('tamanio').value,
-                como_conocio: document.getElementById('como_conocio').value,
-                codigo: codigo,
-                recaptchaToken: token
-            };
+            formData.recaptchaToken = token;
+
+            // Enviar datos al backend (con timeout para no bloquear)
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 segundos de timeout
 
             await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formData),
+                signal: controller.signal
             });
-
-            // Redirigir a gracias.html
-            window.location.href = `gracias.html?codigo=${encodeURIComponent(codigo)}&email=${encodeURIComponent(emailVal)}`;
-
+            clearTimeout(timeoutId);
         } catch (error) {
-            console.error('Error en el envío:', error);
-            statusDiv.innerHTML = '<span style="color:#e53e3e;">Hubo un error al enviar. Intenta de nuevo más tarde.</span>';
-            submitBtn.disabled = false;
+            // Si falla el envío, mostramos un mensaje pero igual redirigimos
+            console.warn('Error en el envío (pero continuamos):', error);
+            statusDiv.innerHTML = '<span style="color:#e67e22;">⚠️ No se pudo enviar los datos, pero tu código ha sido generado.</span>';
+        } finally {
+            // **SIEMPRE** redirigimos a gracias.html, incluso si el fetch falla
+            window.location.href = `gracias.html?codigo=${encodeURIComponent(codigo)}&email=${encodeURIComponent(emailVal)}`;
         }
     });
 }
@@ -130,22 +132,21 @@ function setError(el) {
 }
 
 function executeRecaptcha() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         if (typeof grecaptcha !== 'undefined' && RECAPTCHA_SITE_KEY !== 'TU_SITE_KEY') {
             grecaptcha.ready(() => {
                 grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' })
                     .then(token => resolve(token))
-                    .catch(err => reject(err));
+                    .catch(() => resolve('fake-token-for-testing')); // Si falla, continuamos
             });
         } else {
-            console.warn('reCAPTCHA no configurado. Usando token simulado.');
             resolve('fake-token-for-testing');
         }
     });
 }
 
 // ============================================================
-//  PÁGINA DE AGRADECIMIENTO
+//  PÁGINA DE AGRADECIMIENTO (sin cambios)
 // ============================================================
 function initThanksPage() {
     const params = new URLSearchParams(window.location.search);
